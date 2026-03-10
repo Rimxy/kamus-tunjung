@@ -1,0 +1,1178 @@
+/* === PENGATURAN DASAR & FONT === */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@400;700&display=swap");
+
+/* ======================================= */
+/* ATURAN UNTUK TAMPILAN MOBILE    */
+/* ======================================= */
+@media (max-width: 768px) {
+  /* --- HEADER --- */
+  .header {
+    flex-direction: column; /* Susun logo dan navigasi secara vertikal */
+    gap: 1rem; /* Beri jarak antara logo dan navigasi */
+    padding: 1rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: center; /* Pusatkan menu navigasi */
+    width: 100%;
+  }
+
+  .nav a {
+    margin: 0 1rem; /* Sesuaikan jarak antar menu */
+  }
+
+  /* --- KONTEN UTAMA --- */
+  .main-container {
+    padding: 0 1rem; /* Kurangi padding di sisi kiri dan kanan */
+    margin: 1.5rem auto;
+  }
+
+  .translation-direction {
+    display: flex;
+    flex-direction: column; /* Susun tombol arah terjemahan secara vertikal */
+    gap: 0.5rem;
+  }
+
+  .search-form {
+    flex-direction: column; /* Susun input dan tombol cari secara vertikal */
+  }
+
+  .search-button {
+    width: 100%; /* Buat tombol cari menjadi lebar penuh */
+  }
+
+  /* --- HASIL PENCARIAN --- */
+  .result-card {
+    padding: 1rem;
+  }
+
+  .translation-block .text {
+    font-size: 1.5rem; /* Perkecil ukuran font hasil terjemahan */
+  }
+}
+
+:root {
+  --primary-color: #2c5e3f; /* Hijau Hutan */
+  --secondary-color: #8b4513; /* Coklat Kayu */
+  --accent-color: #d2691e; /* Oranye Terakota */
+  --background-color: #f5f5dc; /* Krem */
+  --text-color: #333333;
+  --card-bg: #ffffff;
+}
+
+/* Gaya untuk Tombol Logout */
+.btn-logout {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #d71111;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: var(
+    --accent-color
+  ); /* Warna oranye yang sedikit lebih gelap */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.6;
+
+  /* Tambahan untuk push footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+.header {
+  background-color: var(--card-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Tambahkan kode ini di file style.css Anda */
+
+.logo-icon {
+  height: 70px; /* Atur tinggi logo sesuai keinginan */
+  width: auto; /* Lebar akan menyesuaikan secara otomatis */
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-family: "Merriweather", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent-color);
+}
+
+/* === MAIN CONTENT (UTAMA) === */
+.main-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  text-align: center;
+
+  /* Tambahan untuk push footer */
+  flex-grow: 1;
+}
+
+.translation-direction {
+  margin-bottom: 1.5rem;
+}
+
+.direction-btn {
+  background-color: var(--card-bg);
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.direction-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.search-form {
+  display: flex;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #a55216;
+}
+
+.slogan {
+  margin-top: 2rem;
+  font-family: "Merriweather", serif;
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+/* === HASIL PENCARIAN === */
+#results-container {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.result-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--accent-color);
+}
+
+.result-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+.result-card h3 span {
+  font-weight: 700;
+}
+
+.result-card hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1rem 0;
+}
+
+.translation-block {
+  margin-bottom: 1rem;
+}
+
+.translation-block .label {
+  display: block;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.translation-block .text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.speaker-icon {
+  cursor: pointer;
+  color: var(--accent-color);
+  margin-left: 0.5rem;
+}
+
+.example-block .sentence {
+  font-style: italic;
+  color: #555;
+}
+
+.example-block .meaning {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.no-result {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #8a6d3b;
+}
+
+/* === FOOTER === */
+.footer {
+  margin-top: 4rem;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Wadah untuk memposisikan ikon di kanan dan memberinya jarak dari footer */
+.login-icon-container {
+  text-align: right; /* Mengatur ikon ke sebelah kanan */
+  margin-bottom: 0, 1rem; /* Jarak ikon dari footer */
+  /* Memberi sedikit jarak dari tepi kanan container utama */
+  padding-right: 2rem;
+}
+
+.admin-login-icon {
+  display: inline-flex; /* Menggunakan inline-flex agar properti flex berfungsi */
+  justify-content: center; /* Menengahkan ikon horizontal */
+  align-items: center; /* Menengahkan ikon vertikal */
+  background-color: var(--primary-color); /* Warna latar belakang lingkaran */
+  color: white; /* Warna ikon di dalam lingkaran */
+  width: 36px; /* Lebar lingkaran */
+  height: 36px; /* Tinggi lingkaran */
+  border-radius: 50%; /* Membuat bentuk lingkaran */
+  transition: background-color 0.3s ease; /* Efek transisi hover */
+  position: relative;
+}
+
+.admin-login-icon:hover {
+  background-color: var(--accent-color); /* Warna latar belakang saat hover */
+}
+
+.admin-login-icon:hover {
+  color: var(--accent-color); /* Efek hover */
+}
+/* Gaya dasar untuk teks tooltip (tersembunyi secara default) */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Positioning tooltip di KIRI ikon */
+  position: absolute;
+  z-index: 1;
+  top: 50%; /* Diubah */
+  right: 125%; /* Diubah: Jarak dari sisi kanan ikon */
+  transform: translateY(-50%); /* Diubah: Untuk menengahkan secara vertikal */
+
+  transition: opacity 0.3s;
+}
+
+/* Panah kecil di KANAN tooltip (menunjuk ke ikon) */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Diubah */
+  left: 100%; /* Diubah: Posisi panah di sisi kanan tooltip */
+  margin-top: -5px; /* Diubah */
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333; /* Diubah */
+}
+
+/* Tampilkan tooltip saat ikon disorot (hover) */
+.admin-login-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN ADMIN & CRUD       */
+/* ======================================= */
+
+.admin-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header di Halaman Dashboard Admin */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Tombol Navigasi di Halaman Dashboard Admin */
+.admin-nav a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-nav a:hover {
+  background-color: #1e422d;
+}
+
+/* Formulir untuk Tambah/Edit Data */
+.form-crud {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.form-crud label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.form-crud input,
+.form-crud select,
+.form-crud textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-crud input[readonly] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Tabel Data */
+.admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.admin-container th,
+.admin-container td {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-container th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Tombol Aksi (Edit & Hapus) */
+.btn-edit,
+.btn-hapus {
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-hapus {
+  background-color: #dc3545;
+  color: white;
+}
+
+.action-cell {
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Notifikasi Sukses/Gagal */
+.message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.sukses {
+  background-color: #28a745;
+}
+
+.gagal {
+  background-color: #dc3545;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK TAMPILAN MOBILE (ADMIN)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  /* Kontainer utama admin */
+  .admin-container {
+    padding: 1rem;
+  }
+
+  /* Header pada dashboard admin */
+  .admin-header {
+    flex-direction: column; /* Susun vertikal */
+    align-items: flex-start; /* Rata kiri */
+    gap: 1rem; /* Jarak antara judul dan tombol logout */
+  }
+
+  .admin-header h1 {
+    font-size: 1.5rem; /* Perkecil ukuran font judul */
+  }
+
+  /* Navigasi di dashboard admin */
+  .admin-nav {
+    display: flex;
+    flex-direction: column; /* Susun tombol navigasi secara vertikal */
+    gap: 0.5rem;
+  }
+
+  .admin-nav a {
+    width: 100%; /* Buat tombol menjadi lebar penuh */
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box; /* Tambahkan baris ini */
+  }
+
+  /* Membuat tabel bisa di-scroll secara horizontal */
+  .admin-container table {
+    display: block;
+    overflow-x: auto; /* Memungkinkan scroll ke samping */
+    white-space: nowrap; /* Mencegah teks di dalam sel terpotong */
+  }
+}
+
+/* === GAYA UNTUK PERPUSTAKAAN KATA (LIBRARY) === */
+#library-container h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.alphabet-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.alphabet-link {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.alphabet-link:hover,
+.alphabet-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.word-list-container {
+  padding: 1rem;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.word-item {
+  display: block;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.word-item:hover,
+.word-item.active {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateX(5px);
+}
+
+/* === GAYA UNTUK PENGALIH MODE (CARI/JELAJAH) === */
+.mode-switcher {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  background-color: var(--card-bg);
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.mode-btn {
+  flex: 1; /* Membuat kedua tombol memiliki lebar yang sama */
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.mode-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mode-btn:not(.active):hover {
+  background-color: #f0f0f0;
+}
+
+/* === GAYA UNTUK PAGINATION === */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.pagination-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #1e422d; /* Warna primary lebih gelap */
+}
+
+.pagination-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Penyesuaian Pagination di Mobile */
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pagination-btn {
+    width: 100%;
+  }
+
+  /* Memastikan urutan visual benar di mobile */
+  .pagination-container .pagination-btn:first-child {
+    order: 2;
+  }
+  .pagination-container .pagination-info {
+    order: 1;
+  }
+  .pagination-container .pagination-btn:last-child {
+    order: 3;
+  }
+}
+
+/* === GAYA UNTUK HALAMAN LOGIN === */
+
+/*
+ * Mengatur body pada login.php agar kotaknya berada di tengah layar.
+ * :has(.login-container) memastikan style ini HANYA berlaku di halaman login.
+*/
+body:has(.login-container) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--primary-color);
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box; /* Memastikan padding tidak menambah lebar */
+  text-align: center;
+  margin: 1rem; /* Jarak aman untuk tampilan mobile */
+}
+
+.login-container h1 {
+  font-family: "Merriweather", serif;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Jarak antar input */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Penting */
+  font-family: "Montserrat", sans-serif;
+}
+
+.login-form button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #1e422d; /* Warna primary lebih gelap */
+}
+
+/* Tombol untuk kembali ke halaman kamus */
+.btn-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+/* Pesan error jika login gagal */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK DROPDOWN TURUNAN KATA      */
+/* ======================================= */
+
+.derivatives-dropdown {
+  margin-top: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Judul dropdown yang bisa diklik */
+.derivatives-dropdown summary {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.derivatives-dropdown summary:hover {
+  background-color: #efefef;
+}
+
+/* Konten di dalam dropdown */
+.derivatives-list {
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Setiap item kata turunan di dalam dropdown */
+.derivative-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.derivative-item:last-child {
+  border-bottom: none; /* Hapus garis untuk item terakhir */
+  padding-bottom: 0;
+}
+
+.derivative-word {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.derivative-pos {
+  font-style: italic;
+  color: #555;
+  margin-left: 0.5rem;
+}
+
+.derivative-translation {
+  margin: 0.25rem 0;
+}
+
+.derivative-example {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.25rem 0 0 0;
+}
+
+.derivative-example {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.25rem 0 0 0;
+  font-style: italic; /* Menambahkan italic untuk contoh kalimat */
+}
+
+/* ======================================= */
+/* ATURAN UNTUK NAVIGASI HEADER BARU */
+/* ======================================= */
+.nav a.active {
+  color: var(--accent-color);
+  font-weight: 700;
+  /* Anda bisa tambahkan garis bawah jika suka */
+  /* border-bottom: 2px solid var(--accent-color); */
+  /* padding-bottom: 2px; */
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN SEPUTAR LAMAN */
+/* ======================================= */
+.sitemap-grid {
+  display: grid;
+  /* Diubah ke 4 kolom di layar besar */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.sitemap-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: left;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sitemap-btn:hover {
+  background-color: #1e422d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tambahan: Media Query untuk Responsif */
+@media (max-width: 960px) {
+  .sitemap-grid {
+    /* Ubah ke 2 kolom di tablet */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .sitemap-grid {
+    /* Ubah ke 1 kolom di HP */
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN "TENTANG KAMI" */
+/* ======================================= */
+.about-page {
+  background-color: var(--card-bg); /* Latar putih seperti card */
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--primary-color);
+  text-align: left; /* Mengatur teks agar rata kiri */
+  line-height: 1.8; /* Jarak antar baris agar mudah dibaca */
+}
+
+.about-title {
+  font-family: "Merriweather", serif;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.about-page p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-page .thesis-title {
+  font-style: italic;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.about-page .tagline {
+  font-family: "Merriweather", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--secondary-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.about-page .sign-off {
+  text-align: right;
+  margin-top: 3rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK TOMBOL KEMBALI (HALAMAN) */
+/* ======================================= */
+.btn-back-page {
+  display: inline-block;
+  margin-bottom: 1.5rem; /* Jarak dari konten di bawahnya */
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary-color); /* Warna coklat kayu */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-back-page:hover {
+  background-color: var(--card-bg); /* Latar putih saat di-hover */
+  color: var(--primary-color); /* Ubah teks jadi hijau */
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ======================================= */
+/* TAMBAHAN UNTUK "TENTANG KAMI" */
+/* ======================================= */
+
+/* Gaya untuk daftar (bullet points) */
+.about-page .about-list {
+  margin-top: -1rem; /* Tarik daftar lebih dekat ke paragraf atas */
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem; /* Beri jarak dari tepi kiri */
+}
+
+.about-page .about-list li {
+  margin-bottom: 0.5rem; /* Jarak antar poin */
+  line-height: 1.7;
+}
+
+/* Garis pemisah antar bahasa */
+.language-divider {
+  border: none;
+  border-top: 2px solid var(--accent-color);
+  opacity: 0.3;
+  margin: 3rem 0;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN "KONTAK" */
+/* ======================================= */
+.contact-content {
+  /* Ganti .contact-page menjadi .contact-content */
+  background-color: var(--card-bg); /* Latar putih */
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--primary-color);
+  text-align: left;
+}
+
+.contact-title {
+  font-family: "Merriweather", serif;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.contact-block {
+  margin-bottom: 2rem;
+}
+
+.contact-block h3 {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.contact-block p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contact-block a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN "PENYUSUN" */
+/* ======================================= */
+.contributor-block {
+  margin-bottom: 2rem;
+}
+
+.contributor-block h3 {
+  font-size: 1.1rem;
+  color: var(--secondary-color); /* Warna coklat kayu */
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee; /* Garis tipis pemisah */
+}
+
+.contributor-block .name-list {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8; /* Jarak agar nama mudah dibaca */
+  margin: 0;
+}
+
+/* ======================================= */
+/* ATURAN UNTUK HALAMAN "PETUNJUK" */
+/* ======================================= */
+
+.about-page h3 {
+  font-size: 1.1rem;
+  color: var(--secondary-color); /* Warna coklat kayu */
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee; /* Garis tipis pemisah */
+}
+
+.about-page h4 {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==== FIX MOBILE OVERFLOW UNTUK HALAMAN PETUNJUK PEMAKAIAN ==== */
+
+/* Membuat <pre> bisa di-scroll horizontal tanpa memotong layout */
+.about-page pre {
+  white-space: pre-wrap; /* Bungkus baris */
+  word-break: break-word; /* Pecah kata panjang */
+  overflow-x: auto; /* Scroll horizontal jika perlu */
+}
+
+/* Tabel agar responsif */
+.about-page table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+/* Sel tabel otomatis wrap */
+.about-page table td,
+.about-page table th {
+  white-space: normal;
+}
+
+/* === GAYA UNTUK IKON SPEAKER SVG === */
+
+.speaker-icon {
+  cursor: pointer;
+  color: var(--accent-color);
+  margin-left: 0.5rem;
+
+  /* Atur agar SVG sejajar dengan teks */
+  display: inline-flex;
+  vertical-align: middle; /* Penting untuk perataan */
+}
+
+.speaker-svg {
+  /* Atur ukuran ikon SVG */
+  width: 24px;
+  height: 24px;
+
+  /* Sesuaikan posisi vertikal agar pas dengan teks besar */
+  transform: translateY(-2px);
+}
+
+/* Ukuran ikon di dalam dropdown turunan kata */
+.derivative-item .speaker-svg {
+  width: 20px;
+  height: 20px;
+  transform: translateY(0); /* Reset posisi */
+}
+
+/* Ukuran ikon di dalam blok contoh */
+.example-block .speaker-svg {
+  width: 20px;
+  height: 20px;
+  transform: translateY(0); /* Reset posisi */
+}

@@ -1,0 +1,47 @@
+# Aktifkan Mesin Rewrite URL
+Options +FollowSymLinks -Multiviews
+RewriteEngine On
+
+# ----------------------------------------------------------------------
+# PENTING: ATUR PATH SESUAI LINGKUNGAN
+# ----------------------------------------------------------------------
+#
+# A. UNTUK LOKAL (XAMPP):
+#    Gunakan path folder Anda. (Saat ini aktif)
+RewriteBase /web_kamus/
+#
+# B. UNTUK HOSTINGER (saat di-upload):
+#    Hapus tanda # di bawah ini dan beri tanda # pada baris XAMPP di atas.
+# RewriteBase /
+#
+# ----------------------------------------------------------------------
+
+# 1. Mencegah orang melihat isi folder
+Options -Indexes
+
+# 2. Arahkan ulang (redirect) /index.php ke /
+# Jika ada yang mengetik .../index.php, paksa kembali ke .../
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+/)*index\.php [NC]
+RewriteRule ^(([^/]+/)*)index\.php$ /$1 [R=301,L]
+
+# 3. Sembunyikan ekstensi .php secara internal
+# Ini mengubah permintaan untuk /login menjadi /login.php di server
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# 4. Melindungi file-file sensitif di folder root
+<Files "koneksi.php">
+    Require all denied
+</Files>
+<Files "login_log.txt">
+    Require all denied
+</Files>
+<Files ".htaccess">
+    Require all denied
+</Files>
+# Blokir akses ke file data mentah Anda
+<FilesMatch "\.(sql|csv|py|zip)$">
+    Require all denied
+</FilesMatch>

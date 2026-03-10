@@ -1,0 +1,12 @@
+# 1. Mencegah orang melihat isi folder
+Options -Indexes
+
+# 2. Melindungi file log aktivitas
+<Files "activity_log.txt">
+    Require all denied
+</Files>
+
+# 3. Melindungi file .htaccess ini sendiri
+<Files ".htaccess">
+    Require all denied
+</Files>

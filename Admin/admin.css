@@ -1,0 +1,454 @@
+/* === FONT & PENGATURAN DASAR === */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #2c5e3f; /* Hijau Hutan */
+  --secondary-color: #8b4513; /* Coklat Kayu */
+  --accent-color: #d2691e; /* Oranye Terakota */
+  --background-color: #f5f5dc; /* Krem */
+  --text-color: #333333;
+  --card-bg: #ffffff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === HEADER (Dibutuhkan oleh Admin) === */
+.header {
+  background-color: var(--card-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--primary-color);
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  height: 70px;
+  width: auto;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+.logo-text {
+  font-family: "Merriweather", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+/* Tombol di header admin */
+.header .nav a,
+.logout-button {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.header .nav a:hover,
+.logout-button:hover {
+  color: var(--accent-color);
+}
+
+/* === TOMBOL LOGOUT === */
+.btn-logout {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #d71111;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.btn-logout:hover {
+  background-color: var(--accent-color);
+}
+
+/* === HALAMAN ADMIN & CRUD === */
+.admin-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1; /* Membuat konten memenuhi ruang */
+  width: 90%; /* Menyesuaikan lebar agar lebih fleksibel */
+  box-sizing: border-box; /* Memastikan padding tidak merusak layout */
+}
+
+/* Header di Halaman Dashboard Admin */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.admin-header h1 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Tombol Navigasi di Halaman Dashboard Admin */
+.admin-nav a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+.admin-nav a:hover {
+  background-color: #1e422d;
+}
+
+/* Formulir untuk Tambah/Edit Data */
+.form-crud {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+.form-crud label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.form-crud input,
+.form-crud select,
+.form-crud textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Penting */
+  font-family: "Montserrat", sans-serif;
+}
+.form-crud input[readonly] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Tombol Simpan/Update di Form CRUD */
+.form-crud .search-button {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+.form-crud .search-button:hover {
+  background-color: #a55216;
+}
+
+/* ======================================================= */
+/* === PERBAIKAN TABEL RESPONSIVE & STICKY COLUMN === */
+/* ======================================================= */
+
+/* 1. Wrapper untuk membuat tabel bisa di-scroll */
+.table-responsive-wrapper {
+  display: block;
+  width: 100%;
+  overflow-x: auto; /* Memungkinkan scroll ke samping (horizontal) */
+  -webkit-overflow-scrolling: touch; /* Scroll lebih mulus di iOS */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+}
+
+/* 2. Aturan untuk tabel di dalam wrapper */
+.admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Mencegah teks terpotong ke bawah */
+  margin-top: 0;
+}
+
+.admin-container th,
+.admin-container td {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-container th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Tombol Aksi (Edit & Hapus) */
+.btn-edit,
+.btn-hapus {
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+.btn-edit {
+  background-color: #ffc107;
+  color: black;
+}
+.btn-hapus {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* 3. KUNCI UNTUK MEMBUAT KOLOM AKSI "STICKY" (MENEMPEL) */
+.action-cell {
+  position: -webkit-sticky; /* Untuk Safari */
+  position: sticky;
+  right: 0; /* Menempel di paling kanan */
+  z-index: 1; /* Tampil di atas sel lain saat di-scroll */
+  min-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Header untuk kolom Aksi (agar ikut menempel) */
+.admin-container th.action-cell {
+  background-color: var(--primary-color); /* Menjaga warna header */
+}
+
+/* Body untuk kolom Aksi (diberi background agar tidak transparan) */
+.admin-container td.action-cell {
+  background-color: var(--card-bg); /* Warna putih agar tidak transparan */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05); /* Bayangan untuk ilusi 'mengambang' */
+}
+/* =============================================== */
+/* === AKHIR PERBAIKAN TABEL === */
+/* =============================================== */
+
+/* Notifikasi Sukses/Gagal */
+.message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+.sukses {
+  background-color: #28a745;
+}
+.gagal {
+  background-color: #dc3545;
+}
+
+/* === FOOTER === */
+.footer {
+  margin-top: 4rem;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* === HALAMAN LOGIN === */
+body:has(.login-container) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.login-container {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--primary-color);
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 1rem;
+}
+.login-container h1 {
+  font-family: "Merriweather", serif;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.login-form button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+.login-form button[type="submit"]:hover {
+  background-color: #1e422d;
+}
+.btn-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-back:hover {
+  text-decoration: underline;
+}
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* === PAGINATION STYLES (Tambahan dari file style.css) === */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.pagination-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Untuk tag <a> */
+  margin: 0 2px; /* Jarak antar tombol */
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #1e422d; /* Warna primary lebih gelap */
+}
+
+.pagination-btn:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Style untuk tombol halaman yang aktif */
+.pagination-btn.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+/* === ATURAN MOBILE (ADMIN) === */
+@media (max-width: 768px) {
+  /* Header utama */
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  /* Kontainer utama admin */
+  .admin-container {
+    padding: 1rem;
+    width: 95%; /* Lebih lebar di mobile */
+  }
+
+  /* Header pada dashboard admin */
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .admin-header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Navigasi di dashboard admin */
+  .admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .admin-nav a {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Pagination di Mobile */
+  .pagination-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .pagination-container div {
+    display: flex;
+    flex-wrap: wrap; /* Tombol angka bisa turun ke bawah */
+    justify-content: center;
+    gap: 5px;
+  }
+  .pagination-btn {
+    flex-grow: 1; /* Tombol First/Prev/Next/Last jadi besar */
+  }
+  /* Tombol angka */
+  .pagination-btn.page-number {
+    flex-grow: 0; /* Biarkan ukuran tombol angka normal */
+    padding: 0.5rem 0.8rem;
+  }
+}
