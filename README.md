@@ -1,6 +1,5 @@
 # Kamus Digital Bahasa Tunjung - Indonesia
 
-Aplikasi berbasis web untuk menerjemahkan kosa kata dan kalimat antara Bahasa Indonesia dan Bahasa Tunjung.
 
 ## Persyaratan Sistem
 
