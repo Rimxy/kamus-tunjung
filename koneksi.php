@@ -42,3 +42,5 @@ function log_activity($action, $details = '')
     file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
 }
 // ==========================================================
+
+// testing kualitas kode
